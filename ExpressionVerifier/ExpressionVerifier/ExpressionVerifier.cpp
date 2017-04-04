@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "IOManipulation.h"
+#include "BindingControl.h"
 
 using namespace std;
 
@@ -13,6 +14,8 @@ int main(int argc, char* argv[])
 		string filename = argv[1];
 
 		ReadFile(filename);
+
+		RunVerification();
 
 	}
 	else
