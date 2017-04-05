@@ -2,11 +2,8 @@
 ////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////
-#include <list>
-#include <string>
 #include "SymbolTable.h"
-using namespace std;
-
+#include "Grammar.h"
 /**
  * RunVerification If the read statement is one of these,
  * it will push or pop a grammar accordingly, 

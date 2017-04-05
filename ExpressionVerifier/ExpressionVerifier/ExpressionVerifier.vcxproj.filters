@@ -47,5 +47,8 @@
     <ClInclude Include="BindingControl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BooleanGrammar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,12 +1,8 @@
-#pragma once
 ////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////
-#include <list>
-#include <string>
-#include <vector>
-#include <iostream>
 #include "SymbolTable.h"
+#include "BindingControl.h"
 using namespace std;
 
 /**
@@ -16,12 +12,3 @@ using namespace std;
  * corresponding to the current grammar for performing the actual verification.
  */
 bool IdentifyGrammarAndVerify(string line) { bool IndentityHolds; };
-
-class BooleanGrammar {
-public:
-	/**
-	 *  BooleanVerification will be called to verify that a given identity holds true. 
-	 *  It will take in a string and return a bool indicating the result of the verification.
-	 */
-	bool BooleanVerification(string identity) { bool IndentityHolds; };
-};

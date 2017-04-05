@@ -1,41 +1,30 @@
+////////////////////////////////////////////////////////////////
+//
+////////////////////////////////////////////////////////////////
 #include "Grammar.h"
-#include "SymbolTable.h"
-using namespace std;
 
 bool IdentifyGrammarAndVerify(string line) {
-	bool IdentityHolds = false;
 	string expression = "";
-	for (int i = 0; i < line.size(); i++) {
+	bool IdentityHolds;
+	 /**
+	 * The first thing is to check the scope
+	 */
+	if (Grammar_Stack.top() == "strings") {
+		// return StringsVerification(line);
+	}
+	else if (Grammar_Stack.top() == "algebra") {
+		// return AlgebraVerification(line);
+	}
+	else if (Grammar_Stack.top() == "sets") {
+		// return SetsVerification(line);
+	}
+	else if (Grammar_Stack.top() == "boolean") {
+		return BooleanVerification(line);
+	}
+	else {
 		/**
-		*  Boolean will be set equal to the grammar we call from this statment
+		* There was something wrong with the string
 		*/
-		if (line == "string") {
-			// IdentityHolds = stringGrammar();
-		}
-		else if (line == "algebra") {
-			// IdentityHolds = algebraGrammar();
-		}
-		else if (line == "set") {
-			// IdentityHolds = setGrammar();
-		}
-		else if (line == "boolean") {
-			// IdentityHolds = BooleanVerification():
-		}
-		else {
-			/**
-			* There was something wrong with the string
-			*/
-		}
-	/**
-	 * The first thing that need to be is parse the line
-	 /
-	for (int i = 0; i < line.length(); i++) {
-		if (line[i] == '=') {
-			expression = "";
-		}
-		else {
-
-		}
-	}*/
-	return IdentityHolds;
+		return false;
+	}
 }
