@@ -2,7 +2,7 @@
 //
 ////////////////////////////////////////////////////////////////
 #include "SymbolTable.h"
-#include "BindingControl.h"
+#include "BooleanGrammar.h"
 using namespace std;
 
 /**

@@ -4,57 +4,48 @@
 #include "BooleanGrammar.h"
 stack<char> boolStack;
 
-bool AND(bool id1, bool id2) {
-	return id1 && id2;
-}
+bool simplifyExp(string expression) {
+	bool end_Value = false;
+	string endVal = "";
 
-bool OR(bool id1, bool id2) {
-	return id1 || id2;
-}
+	for (int i = 0; i < expression.length(); i++) {
+		if (expression[i] == '*') {
+			// Do something
+		}
+		else {
+			// Do something
+		}
+	}
 
-void solveExp() {
-	bool id1, result;
-	if (boolStack.top == '0') {
-		id1 = false;
-	}
-	else {
-		id1 = true;
-	}
-	boolStack.pop();
-	if (boolStack.top == '+') {
-		boolStack.pop();
-		result = AND(id1, boolStack.top());
-	}
-	else {
-		boolStack.pop();
-		result = OR(id1, boolStack.top());
-	}
-	boolStack.pop();
-	boolStack.push(result);
+	return end_Value
 }
 
 bool BooleanVerification(string identity) {
-	bool IndentityHolds, identifier1, identifier2;
-	IndentityHolds = identifier1 = identifier2 = false;
-	int index, end;
-	index = end = 0;
+	bool IndentityHolds, identifier;
+	IndentityHolds = identifier = false;
+	string expression = "";
+	int index, count, num;
+	index = count = num = 0;
 
 	for (int i = 0; i < identity.length(); i++) {
-		if (identity[i] == ' ' || identity[i] == '(') {
+		if (identity[i] == ' ') {
 			continue;
 		}
+		else if (identity[i] = '(') {
+			count++;
+		}
 		else if (identity[i] == '=') {
-			solveExp();
-			IndentityHolds = IndentityHolds && boolStack.top();
-			boolStack.pop();
-			end = 0;
+			identifier = simplifyExp(expression);
+			IndentityHolds = IndentityHolds && identifier;
+			expression = "";
+			num = 0;
 		}
 		else if (identity[i] == ')') {
-			solveExp();
+			count--;
 		}
 		else {
-			boolStack.push(identity[i]);
-			end++;
+			expression[num] = identity[i];
+			num++;
 		}
 	}
 
