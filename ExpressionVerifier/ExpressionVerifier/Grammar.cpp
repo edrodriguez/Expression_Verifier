@@ -5,21 +5,25 @@
 
 bool IdentifyGrammarAndVerify(string line) {
 	string expression = "";
-	bool IdentityHolds;
+	bool IdentityHolds = false;
+	string str = "< strings >";
+	string boo = "< boolean >";
+	string set = "< sets >";
+	string alg = "< algebra >";
 	 /**
 	 * The first thing is to check the scope
 	 */
-	if (Grammar_Stack.top() == "strings") {
+	if (Grammar_Stack.top() == str) {
 		// return StringsVerification(line);
 	}
-	else if (Grammar_Stack.top() == "algebra") {
+	else if (Grammar_Stack.top() == alg) {
 		// return AlgebraVerification(line);
 	}
-	else if (Grammar_Stack.top() == "sets") {
+	else if (Grammar_Stack.top() == set) {
 		// return SetsVerification(line);
 	}
-	else if (Grammar_Stack.top() == "boolean") {
-		return BooleanVerification(line);
+	else if (Grammar_Stack.top() == boo) {
+		IdentityHolds = BooleanVerification(line);
 	}
 	else {
 		/**
@@ -27,4 +31,5 @@ bool IdentifyGrammarAndVerify(string line) {
 		*/
 		return false;
 	}
+	return IdentityHolds;
 }

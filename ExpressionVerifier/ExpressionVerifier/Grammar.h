@@ -11,4 +11,4 @@ using namespace std;
  * After this, it will pass the line to the respective sub module 
  * corresponding to the current grammar for performing the actual verification.
  */
-bool IdentifyGrammarAndVerify(string line) { bool IndentityHolds; };
+bool IdentifyGrammarAndVerify(string line);

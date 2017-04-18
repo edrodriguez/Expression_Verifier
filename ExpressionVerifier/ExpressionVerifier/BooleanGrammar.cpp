@@ -4,50 +4,71 @@
 #include "BooleanGrammar.h"
 stack<char> boolStack;
 
-bool simplifyExp(string expression) {
-	bool end_Value = false;
-	string endVal = "";
+bool checkCount (int count){
+	return count == 0;
+}
 
-	for (int i = 0; i < expression.length(); i++) {
-		if (expression[i] == '*') {
-			// Do something
+bool simplifyExp(int end) {
+	char expression = ' ';
+	int a, b;
+	a = b = 0;
+
+	for (int i = 0; i < end; i++) {
+		expression = boolStack.top();
+		boolStack.pop();
+		if (expression == '*') {
+			b++;
 		}
-		else {
-			// Do something
+		else if (expression == '+') {
+			b++;
+		}
+		else if (expression == '0') {
+			a++;
+		}
+		else if (expression == '1') {
+			a++;
 		}
 	}
 
-	return end_Value
+	if (a > b) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 bool BooleanVerification(string identity) {
 	bool IndentityHolds, identifier;
-	IndentityHolds = identifier = false;
-	string expression = "";
+	IndentityHolds = identifier = true;
 	int index, count, num;
 	index = count = num = 0;
 
 	for (int i = 0; i < identity.length(); i++) {
-		if (identity[i] == ' ') {
-			continue;
-		}
-		else if (identity[i] = '(') {
+		//cout << endl << identity[i];
+		if (identity[i] == '(') {
 			count++;
 		}
 		else if (identity[i] == '=') {
-			identifier = simplifyExp(expression);
+			identifier = checkCount(count);
 			IndentityHolds = IndentityHolds && identifier;
-			expression = "";
-			num = 0;
+			identifier = simplifyExp(num);
+			IndentityHolds = IndentityHolds && identifier;
+			count = num = 0;
 		}
 		else if (identity[i] == ')') {
 			count--;
 		}
 		else {
-			expression[num] = identity[i];
+			boolStack.push(identity[i]);
 			num++;
 		}
 	}
+
+	identifier = checkCount(count);
+	IndentityHolds = IndentityHolds && identifier;
+	identifier = simplifyExp(num);
+	IndentityHolds = IndentityHolds && identifier;
 
 	return IndentityHolds;
 }

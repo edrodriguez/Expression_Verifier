@@ -16,7 +16,6 @@ void ReadFile(string fileName) {
 	inputFile.open(fileName);
 
 	if (inputFile.good()) {
-		string line;
 		while (!inputFile.eof()) {
 			getline(inputFile, line);
 			//Ignore empty lines
@@ -25,7 +24,7 @@ void ReadFile(string fileName) {
 		}
 	}
 	else
-		cout << "Could not read input file." << endl;
+		cout << "Cannot read input file." << endl;
 
 	inputFile.close();
 }

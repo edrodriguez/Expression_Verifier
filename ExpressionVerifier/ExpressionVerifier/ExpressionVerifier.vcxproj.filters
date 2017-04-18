@@ -24,13 +24,13 @@
     <ClCompile Include="SymbolTable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BindingControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Grammar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BooleanGrammar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BindingControl.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,10 +41,10 @@
     <ClInclude Include="SymbolTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Grammar.h">
+    <ClInclude Include="BindingControl.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BindingControl.h">
+    <ClInclude Include="Grammar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BooleanGrammar.h">

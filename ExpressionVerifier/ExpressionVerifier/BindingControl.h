@@ -10,4 +10,4 @@
  * otherwise, it will pass the line to Grammars for verification of identities. 
  * It will then return a list with the verification results.
  */
-void RunVerification(list<string> lines);
+void RunVerification();

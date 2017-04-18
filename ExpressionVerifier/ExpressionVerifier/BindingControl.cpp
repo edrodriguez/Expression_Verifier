@@ -3,16 +3,17 @@
 ////////////////////////////////////////////////////////////////
 #include "BindingControl.h"
 
-void RunVerification(list<string> lines) {
+void RunVerification() {
+	bool identityHolds = false;
 	stack<string> scope;
 	string currentLine = ""; 
-	string str  = "<strings>";
-	string boo  = "<boolean>";
-	string set	= "<sets>";
-	string alg	= "<algebra>";
-	string ext	= "</>";
+	string str  = "< strings >";
+	string boo  = "< boolean >";
+	string set	= "< sets >";
+	string alg	= "< algebra >";
+	string ext	= "< / >";
 
-	for (int i = 0; i < lines.size(); i++) {
+	for (int i = 0; i <= lines.size(); i++) {
 		currentLine = lines.front();
 		lines.pop_front();
 		if (currentLine.find(str) != std::string::npos) {
@@ -37,7 +38,13 @@ void RunVerification(list<string> lines) {
 		}
 		else {
 			// Same Scope continue...
-			IdentifyGrammarAndVerify(currentLine);
+			identityHolds = IdentifyGrammarAndVerify(currentLine);
+			if (identityHolds) {
+				cout << "Valid expression\n";
+			}
+			else {
+				cout << "Invalid expression\n";
+			}
 		}
 	}
 }
