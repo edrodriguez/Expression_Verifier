@@ -1,5 +1,14 @@
 ////////////////////////////////////////////////////////////////
-//
+// The Reference to variables:
+//	lines		  -- hold all the lines contained in the file 
+//					 in sequential order.
+//	Grammar_Stack -- a stack that will hold the grammars as 
+//				     they appear on the input. It will push a 
+//					 grammar when we run into an opening 
+//					 statement and pop it when we read a 
+//					 closing statement.
+//	Output_Queue  -- hold the Strings that will be passed 
+//					 to the output device.
 ////////////////////////////////////////////////////////////////
 #include "SymbolTable.h"
 

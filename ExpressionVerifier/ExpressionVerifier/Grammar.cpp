@@ -1,5 +1,7 @@
 ////////////////////////////////////////////////////////////////
-//
+// IdentifyGrammarAndVerify will check the current grammar by 
+// checking the top of the Grammar_Stack contained in the 
+// Symbol_Table.
 ////////////////////////////////////////////////////////////////
 #include "Grammar.h"
 #include "SymbolTable.h"
@@ -11,13 +13,13 @@ bool IdentifyGrammarAndVerify(string line) {
 	 * The first thing is to check the scope
 	 */
 	if (Grammar_Stack.top() == STR_GRAMMAR) {
-		// return StringsVerification(line);
+		// IdentityHolds = StringsVerification(line);
 	}
 	else if (Grammar_Stack.top() == ALG_GRAMMAR) {
-		// return AlgebraVerification(line);
+		// IdentityHolds = AlgebraVerification(line);
 	}
 	else if (Grammar_Stack.top() == SET_GRAMMAR) {
-		// return SetsVerification(line);
+		//IdentityHolds = SetsVerification(line);
 	}
 	else if (Grammar_Stack.top() == BOOL_GRAMMAR) {
 		IdentityHolds = BooleanVerification(line);

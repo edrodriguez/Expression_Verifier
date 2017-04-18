@@ -1,5 +1,9 @@
 ////////////////////////////////////////////////////////////////
-//
+// RunVerification If the read statement is one of these, 
+// it will push or pop a grammar accordingly, otherwise, it 
+// will pass the line to Grammars for verification of 
+// identities. It will then return a list with the 
+// verification results.
 ////////////////////////////////////////////////////////////////
 #include "BindingControl.h"
 #include "SymbolTable.h"
@@ -12,7 +16,7 @@ void RunVerification() {
 		currentLine = lines.front();
 		lines.pop_front();
 
-		//Check if the current line is a change of scope
+		// Check if the current line is a change of scope
 		if (currentLine.find(STR_GRAMMAR) != std::string::npos) {
 			// Change to <strings> grammar
 			Grammar_Stack.push(STR_GRAMMAR);
@@ -38,9 +42,11 @@ void RunVerification() {
 			correctSyntax = IdentifyGrammarAndVerify(currentLine);
 			if (correctSyntax) {
 				cout << "Valid expression\n";
+				Output_Queue.push_back("Valid");
 			}
 			else {
 				cout << "Invalid expression\n";
+				Output_Queue.push_back("Invalid");
 			}
 		}
 	}
