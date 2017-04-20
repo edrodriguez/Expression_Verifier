@@ -33,6 +33,15 @@
     <ClCompile Include="BooleanGrammar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StringsGrammar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AlgebraGrammar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SetsGrammar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IOManipulation.h">
@@ -48,6 +57,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BooleanGrammar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringsGrammar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AlgebraGrammar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetsGrammar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

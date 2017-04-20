@@ -14,3 +14,5 @@ using namespace std;
 *  It will take in a string and return a bool indicating the result of the verification.
 */
 bool BooleanVerification(string identity);
+
+bool simplifyExp(/*int end*/);

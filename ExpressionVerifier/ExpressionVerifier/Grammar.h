@@ -1,7 +1,8 @@
 ////////////////////////////////////////////////////////////////
 //
 ////////////////////////////////////////////////////////////////
-#include "BooleanGrammar.h"
+#include <string>
+
 using namespace std;
 
 /**
@@ -11,3 +12,5 @@ using namespace std;
  * corresponding to the current grammar for performing the actual verification.
  */
 bool IdentifyGrammarAndVerify(string line);
+
+bool MatchedParentheses(string line);

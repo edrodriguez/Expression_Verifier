@@ -9,73 +9,100 @@
 // simple boolean.
 ////////////////////////////////////////////////////////////////
 #include "BooleanGrammar.h"
+#include "Grammar.h"
+#include <iterator>
+#include <algorithm>
 stack<char> boolStack;
 
-bool checkCount (int count){
-	return count == 0;
-}
+//bool checkCount (int count){
+//	return count == 0;
+//}
 
-bool simplifyExp(int end) {
+bool simplifyExp() {
+	char validDigits[] = { '0', '1'};
+	char validOperators[] = { '+', '*' };
 	char expression = ' ';
-	int a, b;
-	a = b = 0;
+	int digit, oper;
+	digit = oper = 0;
 
-	for (int i = 0; i < end; i++) {
+	while (!boolStack.empty()) {
 		expression = boolStack.top();
 		boolStack.pop();
-		if (expression == '*') {
-			b++;
+
+		if (find(begin(validOperators), end(validOperators), expression) != end(validOperators)) {
+			oper++;
 		}
-		else if (expression == '+') {
-			b++;
+		else if (find(begin(validDigits), end(validDigits), expression) != end(validDigits)) {
+			digit++;
 		}
-		else if (expression == '0') {
-			a++;
-		}
-		else if (expression == '1') {
-			a++;
-		}
+		else
+			return false;
+
+		if (digit > oper + 1)
+			return false;
 	}
 
-	if (a > b) {
+	if (digit > oper)
 		return true;
-	}
-	else {
+	else
 		return false;
-	}
 }
 
-bool BooleanVerification(string identity) {
-	bool IndentityHolds, identifier;
-	IndentityHolds = identifier = true;
-	int index, count, num;
-	index = count = num = 0;
+bool BooleanVerification(string line) {
+	bool correctSyntax;
+	correctSyntax = true;
 
-	for (int i = 0; i < identity.length(); i++) {
-		//cout << endl << identity[i];
-		if (identity[i] == '(') {
-			count++;
+	if (MatchedParentheses(line)) {
+		line.erase(remove(line.begin(), line.end(), '('), line.end());
+		line.erase(remove(line.begin(), line.end(), ')'), line.end());
+
+		for (size_t i = 0; i < line.size(); i++) {
+			if (line[i] == '=') {
+				correctSyntax = simplifyExp();
+			}
+			else {
+				boolStack.push(line[i]);
+			}
+
+			if (!correctSyntax)
+				return false;
 		}
-		else if (identity[i] == '=') {
-			identifier = checkCount(count);
-			IndentityHolds = IndentityHolds && identifier;
-			identifier = simplifyExp(num);
-			IndentityHolds = IndentityHolds && identifier;
-			count = num = 0;
-		}
-		else if (identity[i] == ')') {
-			count--;
-		}
-		else {
-			boolStack.push(identity[i]);
-			num++;
-		}
+		correctSyntax = simplifyExp();
+		return correctSyntax;
 	}
+	else
+		return false;
 
-	identifier = checkCount(count);
-	IndentityHolds = IndentityHolds && identifier;
-	identifier = simplifyExp(num);
-	IndentityHolds = IndentityHolds && identifier;
+	//bool IndentityHolds, identifier;
+	//IndentityHolds = identifier = true;
+	//int index, count, num;
+	//index = count = num = 0;
 
-	return IndentityHolds;
+	//for (int i = 0; i < identity.length(); i++) {
+	//	//cout << endl << identity[i];
+	//	if (identity[i] == '(') {
+	//		count++;
+	//	}
+	//	else if (identity[i] == '=') {
+	//		identifier = checkCount(count);
+	//		IndentityHolds = IndentityHolds && identifier;
+	//		identifier = simplifyExp(num);
+	//		IndentityHolds = IndentityHolds && identifier;
+	//		count = num = 0;
+	//	}
+	//	else if (identity[i] == ')') {
+	//		count--;
+	//	}
+	//	else {
+	//		boolStack.push(identity[i]);
+	//		num++;
+	//	}
+	//}
+
+	//identifier = checkCount(count);
+	//IndentityHolds = IndentityHolds && identifier;
+	//identifier = simplifyExp(num);
+	//IndentityHolds = IndentityHolds && identifier;
+
+	/*return IndentityHolds;*/
 }

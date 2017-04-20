@@ -6,15 +6,19 @@
 // verification results.
 ////////////////////////////////////////////////////////////////
 #include "BindingControl.h"
+#include "Grammar.h"
 #include "SymbolTable.h"
+#include <iterator>
+#include <algorithm> 
 
 void RunVerification() {
 	bool correctSyntax = false;
 	string currentLine = ""; 
 
-	for (int i = 0; i <= lines.size(); i++) {
+	while (!lines.empty()) {
 		currentLine = lines.front();
-		lines.pop_front();
+		//remove spaces
+		currentLine.erase(remove_if(currentLine.begin(), currentLine.end(), isspace), currentLine.end());
 
 		// Check if the current line is a change of scope
 		if (currentLine.find(STR_GRAMMAR) != std::string::npos) {
@@ -37,17 +41,19 @@ void RunVerification() {
 			// Cross out the top of the Grammar_Stack
 			Grammar_Stack.pop();
 		}
-		else {
-			// Same Scope so evaluate the expression with the current scope...
+		else { // Same Scope so evaluate the expression with the current scope...
 			correctSyntax = IdentifyGrammarAndVerify(currentLine);
 			if (correctSyntax) {
-				cout << "Valid expression\n";
+				cout << "-\"" << currentLine << "\"" << " is a VALID expression for the " << Grammar_Stack.top() << " grammar" << endl;
+				cout << endl;
 				Output_Queue.push_back("Valid");
 			}
 			else {
-				cout << "Invalid expression\n";
+				cout << "-\"" << currentLine << "\"" << " is an INVALID expression for the " << Grammar_Stack.top() << " grammar" << endl;
+				cout << endl;
 				Output_Queue.push_back("Invalid");
 			}
 		}
+		lines.pop_front();
 	}
 }
