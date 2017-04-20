@@ -24,34 +24,48 @@ void RunVerification() {
 		if (currentLine.find(STR_GRAMMAR) != std::string::npos) {
 			// Change to <strings> grammar
 			Grammar_Stack.push(STR_GRAMMAR);
+			Output_Queue.push_back(STR_GRAMMAR);
 		}
 		else if (currentLine.find(BOOL_GRAMMAR) != std::string::npos) {
 			// Change to <boolean> grammar
 			Grammar_Stack.push(BOOL_GRAMMAR);
+			Output_Queue.push_back(BOOL_GRAMMAR);
 		}
 		else if (currentLine.find(SET_GRAMMAR) != std::string::npos) {
 			// Change to <sets> grammar
 			Grammar_Stack.push(SET_GRAMMAR);
+			Output_Queue.push_back(SET_GRAMMAR);
 		}
 		else if (currentLine.find(ALG_GRAMMAR) != std::string::npos) {
 			// Change to <algebra> grammar
 			Grammar_Stack.push(ALG_GRAMMAR);
+			Output_Queue.push_back(ALG_GRAMMAR);
 		}
 		else if (currentLine.find(EXIT_GRAMMAR) != std::string::npos) {
 			// Cross out the top of the Grammar_Stack
+			string close = EXIT_GRAMMAR;
+			close += ",";
+			close += Grammar_Stack.top();
+			Output_Queue.push_back(close);
 			Grammar_Stack.pop();
 		}
 		else { // Same Scope so evaluate the expression with the current scope...
 			correctSyntax = IdentifyGrammarAndVerify(currentLine);
 			if (correctSyntax) {
-				cout << "-\"" << currentLine << "\"" << " is a VALID expression for the " << Grammar_Stack.top() << " grammar" << endl;
-				cout << endl;
-				Output_Queue.push_back("Valid");
+				string verification = currentLine;
+				verification += ";";
+				verification += "VALID";
+				verification += ";";
+				verification += Grammar_Stack.top();
+				Output_Queue.push_back(verification);
 			}
 			else {
-				cout << "-\"" << currentLine << "\"" << " is an INVALID expression for the " << Grammar_Stack.top() << " grammar" << endl;
-				cout << endl;
-				Output_Queue.push_back("Invalid");
+				string verification = currentLine;
+				verification += ";";
+				verification += "INVALID";
+				verification += ";";
+				verification += Grammar_Stack.top();
+				Output_Queue.push_back(verification);
 			}
 		}
 		lines.pop_front();

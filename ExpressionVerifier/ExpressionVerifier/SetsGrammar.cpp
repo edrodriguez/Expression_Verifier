@@ -150,11 +150,7 @@ bool SetsVerification(string line) {
 			correctSyntax = checkParentheses();
 			if (!correctSyntax)
 				return false;
-			//setsVector.erase(remove(setsVector.begin(), setsVector.end(), '('), setsVector.end());
-			//setsVector.erase(remove(setsVector.begin(), setsVector.end(), ')'), setsVector.end());
-			//setsVector.erase(remove(setsVector.begin(), setsVector.end(), ','), setsVector.end());
-			//setsVector.erase(remove(setsVector.begin(), setsVector.end(), '{'), setsVector.end());
-			//setsVector.erase(remove(setsVector.begin(), setsVector.end(), '}'), setsVector.end());
+
 			correctSyntax = checkSetsOperations();
 			setsVector.clear();
 		}
@@ -171,11 +167,7 @@ bool SetsVerification(string line) {
 	correctSyntax = checkParentheses();
 	if (!correctSyntax)
 		return false;
-	//setsVector.erase(remove(setsVector.begin(), setsVector.end(), '('), setsVector.end());
-	//setsVector.erase(remove(setsVector.begin(), setsVector.end(), ')'), setsVector.end());
-	//setsVector.erase(remove(setsVector.begin(), setsVector.end(), ','), setsVector.end());
-	//setsVector.erase(remove(setsVector.begin(), setsVector.end(), '{'), setsVector.end());
-	//setsVector.erase(remove(setsVector.begin(), setsVector.end(), '}'), setsVector.end());
+
 	correctSyntax = checkSetsOperations();
 
 	return correctSyntax;

@@ -17,8 +17,10 @@ int main(int argc, char* argv[])
 
 		RunVerification();
 
+		WriteResults();
+
 	}
 	else
-		cout << "Error running the Verifier. You need to provide a source file." << endl;
+		cout << "Error running the verifier. You need to provide a source file." << endl;
 	return 0;
 }
