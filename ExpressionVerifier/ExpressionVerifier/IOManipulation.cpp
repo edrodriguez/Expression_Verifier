@@ -45,7 +45,7 @@ void WriteGrammarClose(string grammar) {
 	stringstream ss(grammar);
 	string item;
 	vector<string> tokens;
-	char delim = ',';
+	char delim = ':';
 	while (getline(ss, item, delim)) {
 		tokens.push_back(item);
 	}
@@ -57,12 +57,12 @@ void WriteVerification (string verification) {
 	stringstream ss(verification);
 	string item;
 	vector<string> tokens;
-	char delim = ';';
+	char delim = ':';
 	while (getline(ss, item, delim)) {
 		tokens.push_back(item);
 	}
 
-	if (tokens[1] == "VALID") {
+	if (tokens[1] == VALID) {
 		cout << "-\"" << tokens[0] << "\"" << " is a VALID expression for the " << tokens[2] << " grammar" << endl;
 		cout << endl;
 	}
@@ -75,18 +75,19 @@ void WriteVerification (string verification) {
 void WriteResults() {
 	string line;
 	vector<string> validGrammars = { ALG_GRAMMAR, BOOL_GRAMMAR, SET_GRAMMAR, STR_GRAMMAR };
+	vector<string> validity = { VALID, INVALID };
 
 	while (!Output_Queue.empty()) {
-		if (Output_Queue.front().find(EXIT_GRAMMAR) != std::string::npos) {
-			WriteGrammarClose(Output_Queue.front());
+		if (Output_Queue.front().find(VALID) != std::string::npos || Output_Queue.front().find(INVALID) != std::string::npos) {
+			WriteVerification(Output_Queue.front());
 			Output_Queue.pop_front();
 		}
 		else if (find(begin(validGrammars), end(validGrammars), Output_Queue.front()) != end(validGrammars)) {
 			WriteGrammarChange(Output_Queue.front());
 			Output_Queue.pop_front();
 		}
-		else{
-			WriteVerification(Output_Queue.front());
+		else if (Output_Queue.front().find(EXIT_GRAMMAR) != std::string::npos) {
+			WriteGrammarClose(Output_Queue.front());
 			Output_Queue.pop_front();
 		}
 	}

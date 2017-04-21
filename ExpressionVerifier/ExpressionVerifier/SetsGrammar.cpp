@@ -10,7 +10,7 @@ using namespace std;
 
 bool checkSetsOperations() {
 	char validDigits[] = { '0', '1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' };
-	char validLetters[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'i', 'j', 'k', 'l',
+	char validLetters[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 		'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 	char validDelimiters[] = { '(', ')', '{', '}', ','};
 	char validOperators[] = { '+', '*' };
@@ -49,7 +49,7 @@ bool checkSetsOperations() {
 bool checkInsideOfBraces(size_t &currentIndex) {
 	char expression = ' ';
 	char validDigits[] = { '0', '1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' };
-	char validLetters[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'i', 'j', 'k', 'l',
+	char validLetters[] = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
 		'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
 	char validOperator = ',';
 	int digit, oper;

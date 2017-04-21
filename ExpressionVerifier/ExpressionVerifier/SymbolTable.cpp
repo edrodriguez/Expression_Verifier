@@ -23,3 +23,6 @@ const string BOOL_GRAMMAR = "<boolean>";
 const string SET_GRAMMAR = "<sets>";
 const string ALG_GRAMMAR = "<algebra>";
 const string EXIT_GRAMMAR = "</>";
+const string BINDING_GRAMMAR = "<binding_control>";
+const string VALID = "VALID";
+const string INVALID = "INVALID";

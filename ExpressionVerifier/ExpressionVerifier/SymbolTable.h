@@ -19,3 +19,6 @@ extern const string BOOL_GRAMMAR;
 extern const string SET_GRAMMAR;
 extern const string ALG_GRAMMAR;
 extern const string EXIT_GRAMMAR;
+extern const string BINDING_GRAMMAR;
+extern const string VALID;
+extern const string INVALID;
