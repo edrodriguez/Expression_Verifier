@@ -1,3 +1,9 @@
+////////////////////////////////////////////////////////////////
+// This is the entry point to the verifier application
+// it calls methods for getting the information from the file,
+// verify it and then to write the output
+////////////////////////////////////////////////////////////////
+
 #include <vector>
 #include <iostream>
 #include <string>

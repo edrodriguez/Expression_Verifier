@@ -1,6 +1,13 @@
 #pragma once
 ////////////////////////////////////////////////////////////////
-//
+// BooleanVerification will call different internal methods 
+// that will aid with the verification of the identity. 
+// Such methods would handle the different operators of this 
+// grammar. The implementation of this grammar will include a 
+// stack for a pushdown automata like operation. Expressions 
+// would be broken down to identifiers, true or false, then 
+// operations (and, or, not) will join the expressions to a 
+// simple boolean.
 ////////////////////////////////////////////////////////////////
 #include <list>
 #include <string>
@@ -9,10 +16,6 @@
 #include <iostream>
 using namespace std;
 
-/**
-*  BooleanVerification will be called to verify that a given identity holds true.
-*  It will take in a string and return a bool indicating the result of the verification.
-*/
 bool BooleanVerification(string identity);
 
-bool simplifyExp(/*int end*/);
+bool simplifyExp();

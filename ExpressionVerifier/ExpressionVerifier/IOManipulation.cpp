@@ -1,12 +1,7 @@
 ////////////////////////////////////////////////////////////////
-// Extract each line of the file indicated by filename and
-// write each line as an entry in the vector instructions
-// ReadFile will scan the file indicated in the path and will 
-// create a list populated with each line of the file in 
-// separate entries. WriteResults will write each line that 
-// was to be verified as an identity along with the scope 
-// that was used for verification and the result of the 
-// verification
+// IOManipulation will take care of reading the expressions 
+// from the file and writing the results of the verification
+// to the output device
 ////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <fstream>

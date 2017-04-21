@@ -14,10 +14,6 @@
 #include <algorithm>
 stack<char> boolStack;
 
-//bool checkCount (int count){
-//	return count == 0;
-//}
-
 bool simplifyExp() {
 	char validDigits[] = { '0', '1'};
 	char validOperators[] = { '+', '*' };
@@ -72,37 +68,4 @@ bool BooleanVerification(string line) {
 	}
 	else
 		return false;
-
-	//bool IndentityHolds, identifier;
-	//IndentityHolds = identifier = true;
-	//int index, count, num;
-	//index = count = num = 0;
-
-	//for (int i = 0; i < identity.length(); i++) {
-	//	//cout << endl << identity[i];
-	//	if (identity[i] == '(') {
-	//		count++;
-	//	}
-	//	else if (identity[i] == '=') {
-	//		identifier = checkCount(count);
-	//		IndentityHolds = IndentityHolds && identifier;
-	//		identifier = simplifyExp(num);
-	//		IndentityHolds = IndentityHolds && identifier;
-	//		count = num = 0;
-	//	}
-	//	else if (identity[i] == ')') {
-	//		count--;
-	//	}
-	//	else {
-	//		boolStack.push(identity[i]);
-	//		num++;
-	//	}
-	//}
-
-	//identifier = checkCount(count);
-	//IndentityHolds = IndentityHolds && identifier;
-	//identifier = simplifyExp(num);
-	//IndentityHolds = IndentityHolds && identifier;
-
-	/*return IndentityHolds;*/
 }

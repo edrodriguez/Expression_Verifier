@@ -1,9 +1,8 @@
 ////////////////////////////////////////////////////////////////
-// RunVerification If the read statement is one of these, 
+// BindingControl checks the statements for valid format, 
 // it will push or pop a grammar accordingly, otherwise, it 
 // will pass the line to Grammars for verification of 
-// identities. It will then return a list with the 
-// verification results.
+// identities.
 ////////////////////////////////////////////////////////////////
 #include "BindingControl.h"
 #include "Grammar.h"

@@ -1,7 +1,8 @@
 ////////////////////////////////////////////////////////////////
-// IdentifyGrammarAndVerify will check the current grammar by 
-// checking the top of the Grammar_Stack contained in the 
-// Symbol_Table.
+// Grammar will take in a line which will represent 
+// an identity and will check what is the current grammar scope.
+// After this, it will pass the line to the respective sub module
+// corresponding to the current grammar for performing the actual verification.
 ////////////////////////////////////////////////////////////////
 #include "Grammar.h"
 #include "SymbolTable.h"

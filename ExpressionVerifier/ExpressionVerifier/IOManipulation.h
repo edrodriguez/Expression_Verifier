@@ -1,6 +1,8 @@
 #pragma once
 ////////////////////////////////////////////////////////////////
-//
+// IOManipulation will take care of reading the expressions 
+// from the file and writing the results of the verification
+// to the output device
 ////////////////////////////////////////////////////////////////
 #include <string>
 #include <vector>
@@ -15,5 +17,4 @@ void WriteGrammarClose(string grammar);
 
 void WriteVerification(string verification);
 
-//Write the contents of the Output queue to the file indicated in filename
 void WriteResults();
