@@ -132,6 +132,10 @@ bool checkParentheses() {
 			closeCount++;
 		}
 
+		if (i < setsVector.size() - 1)
+			if (expression == '(' && setsVector[i + 1] == ')')
+				return false;
+
 		if (closeCount > openCount)
 			return false;
 	}
