@@ -38,15 +38,18 @@ void RunVerification() {
 
 			//check that there are not a start and an end with anything in between
 			if (lines.size() > 1) {
-				string nextLine = *(++lines.begin());
-				nextLine.erase(remove_if(nextLine.begin(), nextLine.end(), isspace), nextLine.end());
-				if (nextLine.find(EXIT_GRAMMAR) != std::string::npos) {
-					string jointLines = currentLine + nextLine;
-					WriteValidity(jointLines, BINDING_GRAMMAR, INVALID);
-					linePopped = true;
-					lines.pop_front();
-					lines.pop_front();
-					continue;
+				vector<string> validGrammars = { ALG_GRAMMAR, BOOL_GRAMMAR, SET_GRAMMAR, STR_GRAMMAR };
+				if (find(begin(validGrammars), end(validGrammars), currentLine) != end(validGrammars)){
+					string nextLine = *(++lines.begin());
+					nextLine.erase(remove_if(nextLine.begin(), nextLine.end(), isspace), nextLine.end());
+					if (nextLine.find(EXIT_GRAMMAR) != std::string::npos) {
+						string jointLines = currentLine + nextLine;
+						WriteValidity(jointLines, BINDING_GRAMMAR, INVALID);
+						linePopped = true;
+						lines.pop_front();
+						lines.pop_front();
+						continue;
+					}
 				}
 			}
 
